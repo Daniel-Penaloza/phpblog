@@ -32,25 +32,23 @@
     };
 
     function stablishConection(){
-        $url = parse_url("heroku_e626ca86f45a2ab");
-
+        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
         $db = substr($url["path"], 1);
+        
 
-        $conn = new mysqli($server, $username, $password, $db);        
-        
-        
+        $conn = new mysqli($server, $username, $password, $db);
+        /*
         // Creando variables para nuestra conexion a MySQL
-        /* $user="root";
+        $user="root";
         $password="";
         $database="posts";
         $host="localhost";
 
         $complete_data = [$user, $password, $database, $host];
         // Hacer la conexion minimo una vez siempre y cuando el numero de campos del arreglo $complete_data sea igual a 4
-    
         do {
             // Estableciendo la conexion pasandole la informacion desde el arreglo database_information
             $conection = mysqli_connect($host,$user,$password,$database);
