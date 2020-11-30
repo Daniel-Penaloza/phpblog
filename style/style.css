@@ -1,0 +1,51 @@
+* {
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 66.66%;
+}
+
+/* HEADERS */
+.main__header {
+    font-size: 3rem;
+}
+
+.submain__hedar {
+    font-size: 1.5rem;
+}
+/* HEADERS */
+
+/* HEADING SECTION */
+.header {
+    width:  100%;
+    margin-top: 2rem;
+}
+
+.header__title {
+    text-align: center;
+}
+
+/* HEADING SECTION */
+
+/* POST CONTENT */
+.post__container {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.post__content {
+    margin-bottom: 1rem;
+}
+
+.label {
+    background-color: #28A745;
+    padding: .5rem .5rem;
+    color: white;
+    border-radius: .5rem;
+    font-weight: 400;
+}
+
+
+/* POST CONTENT */
