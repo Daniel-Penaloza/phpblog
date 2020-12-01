@@ -32,7 +32,7 @@
     };
 
     function stablishConection(){
-        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+        $url = parse_url("mysql://b3b69dbd7b6133:992f6956@us-cdbr-east-02.cleardb.com/heroku_18ddf51f110cf25?reconnect=true");
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
