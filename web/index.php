@@ -38,7 +38,7 @@
         echo "<h1>".$server."</h1>";
         
         $db = substr($url["path"], 1);
-        
+        echo "<h1>".$db."</h1>";
 
         $conn = new mysqli($server, $username, $password, $db);
         /*
