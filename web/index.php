@@ -35,6 +35,8 @@
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
+        echo "<h1>".$server."</h1>"
+        
         $db = substr($url["path"], 1);
         
 
