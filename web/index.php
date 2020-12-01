@@ -32,34 +32,41 @@
 
     function stablishConection(){
 
-        //Get Heroku ClearDB connection information
-        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+        /* Aplicacion En Produccion */ 
+        // Obtenemos la variable de entorno desde nuestro proyecto en Heroku.
+        $env_info = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-        $server = $url["host"];
-        $username = $url["user"];
-        $password = $url["pass"];
-        $db = substr($url["path"], 1);
+        // Creamos las variables necesarias para la conexion a MYSQL
+        $user = $env_info["user"];   
+        $host = $env_info["host"];
+        $password = $env_info["pass"];
+        $database = substr($env_info["path"], 1);
 
-        $conn = new mysqli($server, $username, $password, $db);
-        $conn->set_charset("utf8");
-        return $conn;
-
-        
-        /*
-        // Creando variables para nuestra conexion a MySQL
-        $user="root";
-        $password="";
-        $database="posts";
-        $host="localhost";
-
-        $complete_data = [$user, $password, $database, $host];
-        // Hacer la conexion minimo una vez siempre y cuando el numero de campos del arreglo $complete_data sea igual a 4
+        $complete_data = [$user, $host, $password, $database];
+        // Hacemos la conexion una vez suempre y cuando el numero de campos del arreglo $complete_data sea igual a 4
         do {
-            // Estableciendo la conexion pasandole la informacion desde el arreglo database_information
-            $conection = mysqli_connect($host,$user,$password,$database);
-            return $conection;
+            // Realizamos la conexion a nuestra base de datos
+            $connection = new mysqli($host, $user, $password, $database);
+            // Establecemos que utilizara el tipo de caracteres utf8 nuestra aplicación para mostrar acentos y ñ´s.
+            $connection->set_charset("utf8");            
+            // Retornamos la conexion a su llamada
+            return $connection;
             $complete_data = [];
-        } while(count($complete_data === 4));
+        }   while(count($complete_data === 4));
+        
+        /* Aplicacion En Desarrollo */ 
+        /*
+            $user="root";
+            $password="";
+            $database="posts";
+            $host="localhost";
+
+            $complete_data = [$user, $password, $database, $host];
+            do {
+                $conection = mysqli_connect($host,$user,$password,$database);
+                return $conection;
+                $complete_data = [];
+            } while(count($complete_data === 4));
         */
     }
 
