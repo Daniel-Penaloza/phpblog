@@ -40,7 +40,9 @@
         $db = substr($url["path"], 1);
         echo "<h1>".$db."</h1>";
 
-        $conn = new mysqli($server, $username, $password, $db);
+        //$conn = new mysqli($server, $username, $password, $db);
+        $conn = mysqli_connect($server, $username, $password, $db);
+        
         /*
         // Creando variables para nuestra conexion a MySQL
         $user="root";
