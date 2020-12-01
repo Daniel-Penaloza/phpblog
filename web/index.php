@@ -33,7 +33,7 @@
     function stablishConection(){
 
         $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-        echo $url;
+        echo implode($url);
         // Creando variables para nuestra conexion a MySQL
         $user="root";
         $password="";
