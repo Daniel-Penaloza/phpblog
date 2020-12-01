@@ -76,7 +76,7 @@
             </script>
         ";
     }
-
+    echo checkConnection();
     /*
     function getPosts() {
         // Creando variable booleana connection_statusc on el valor de false
