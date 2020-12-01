@@ -88,7 +88,7 @@
             // Llamando a checkConection con la finalidad de saber si estamos conectados a la base de datos.        
             checkConnection();
             $statement = "select * from posts";
-            $result =  stablishConection()->query($statement, 'utf8');
+            $result =  stablishConection()->query($statement);
             
             // Cambiamos la variable connection_status a true para salir del ciclo.
             $connection_status = true;
