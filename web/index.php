@@ -31,7 +31,7 @@
     };
 
     function stablishConection(){
-        $url = parse_url("mysql://b3b69dbd7b6133:992f6956@us-cdbr-east-02.cleardb.com/heroku_18ddf51f110cf25?reconnect=true");
+        /*$url = parse_url("mysql://b3b69dbd7b6133:992f6956@us-cdbr-east-02.cleardb.com/heroku_18ddf51f110cf25?reconnect=true");
         $server = $url["host"];
         $username = $url["user"];
         $password = $url["pass"];
@@ -40,10 +40,9 @@
         $db = substr($url["path"], 1);
         echo "<h1>".$db."</h1>";
 
-        //$conn = new mysqli($server, $username, $password, $db);
-        $conn = mysqli_connect($server, $username, $password, $db);
+        $conn = new mysqli($server, $username, $password, $db);
+        */
         
-        /*
         // Creando variables para nuestra conexion a MySQL
         $user="root";
         $password="";
@@ -58,7 +57,6 @@
             return $conection;
             $complete_data = [];
         } while(count($complete_data === 4));
-        */
     }
 
 
@@ -79,6 +77,7 @@
         ";
     }
 
+    /*
     function getPosts() {
         // Creando variable booleana connection_statusc on el valor de false
         $connection_status = false;
@@ -96,7 +95,7 @@
         }
         
     }   
-
+    */
     // Funcion para retornar un string de bootstrap para desplegar un emoji en donde tenemos como argumento el numero del tipo de reaccion.
     function checkReaction($reaction){
         // Retornamos un arreglo del tipo string con el nombre del icono a desplegar.
@@ -117,7 +116,7 @@
     ///////////////////////////////////////////
 
     // Asignando el retorno de la funcion getPosts (objeto) a la variable posts
-    $posts = getPosts();    
+    /*  $posts = getPosts();    
     
 
     if ($posts->num_rows>0) {
@@ -134,4 +133,5 @@
             </div>";
         }
     };
+    */
 ?>
