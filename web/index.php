@@ -41,7 +41,6 @@
         $db = substr($url["path"], 1);
 
         $conn = new mysqli($server, $username, $password, $db);
-
         return $conn;
 
         
@@ -89,7 +88,8 @@
             // Llamando a checkConection con la finalidad de saber si estamos conectados a la base de datos.        
             checkConnection();
             $statement = "select * from posts";
-            $result =  stablishConection()->query($statement);
+            $result =  stablishConection()->query($statement, 'utf8');
+            
             // Cambiamos la variable connection_status a true para salir del ciclo.
             $connection_status = true;
 
