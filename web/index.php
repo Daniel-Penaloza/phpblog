@@ -1,3 +1,18 @@
+<?php
+    ///////////////////////////
+    //// Datos Generles/////
+    /////////////////////////
+    /*
+        Nombre del alumno: Hector Daniel Peñaloza Moran.
+        Nombre del maestro: Octavio Aguirre Lozano.
+        Materia: Computación en el servidor web.
+        Nombre de actividad: Desarrollo Web Avanzado.
+    */ 
+    ///////////////////////////
+    //// Datos Generles/////
+    /////////////////////////
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,17 +36,18 @@
 </html>
 
 <?php
-    ///////////////////////////////////////////
     /////////////////FUNCIONES/////////////////
-    ///////////////////////////////////////////
+    
     // Funcion para acortar descripcion
     function shortContent($the_content){
         // Retornarmos una subcadena acortando la cadena original a 560 caracteres y agregando 3 puntos suspensivos al final.
         return substr($the_content, 0 , 560).'...';
     };
 
-    function stablishConection(){
 
+    // TODO: Incluir condicional para detectar cuando estemos en un ambiente de desarrollo o de producción y evitar los comentarios de la aplicación en desarrollo local.
+    function stablishConection(){
+        
         /* Aplicacion En Produccion */ 
         // Obtenemos la variable de entorno desde nuestro proyecto en Heroku.
         $env_info = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -54,7 +70,7 @@
             $complete_data = [];
         }   while(count($complete_data === 4));
         
-        /* Aplicacion En Desarrollo */ 
+        /* Aplicacion En Desarrollo Local */ 
         /*
             $user="root";
             $password="";
@@ -122,9 +138,8 @@
                 break;
         }
     }
-    ///////////////////////////////////////////
+    
     /////////////////FUNCIONES/////////////////
-    ///////////////////////////////////////////
 
     // Asignando el retorno de la funcion getPosts (objeto) a la variable posts
     $posts = getPosts();    
